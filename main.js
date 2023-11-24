@@ -12,7 +12,7 @@ module.exports.loop = function () {
     }
 
     var upgrader = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-    console.log('Upgraders: ' + harvesters.length);
+    console.log('Upgraders: ' + upgrader.length);
 
     if(upgrader.length < 2) {
         var newName = 'Upgrader' + Game.time;
