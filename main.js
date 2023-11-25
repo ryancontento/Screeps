@@ -14,8 +14,8 @@ module.exports.loop = function () {
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     console.log('Harvesters: ' + harvesters.length);
 
-    // Always have at least 2 harvesters.
-    if(harvesters.length < 2) {
+    // Always have at least 4 harvesters.
+    if(harvesters.length < 4) {
         var newName = 'Harvester' + Game.time;
         console.log('Spawning new harvester: ' + newName);
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE, MOVE], newName, 
@@ -26,8 +26,8 @@ module.exports.loop = function () {
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
     console.log('Upgraders: ' + upgraders.length);
 
-    // Always have at least to upgraders.
-    if(upgraders.length < 2) {
+    // Always have at least 4 upgraders.
+    if(upgraders.length < 4) {
         var newName = 'Upgrader' + Game.time;
         console.log('Spawning new upgrader: ' + newName);
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE, MOVE], newName, 
@@ -59,6 +59,10 @@ module.exports.loop = function () {
             //console.log(`Current Builder Count: ${}`)
         }
     }
+
+    // Temp Logic 
+
+
 
     // Example of using a tower
     // var tower = Game.getObjectById('787380be5717a15e250a42eb');
