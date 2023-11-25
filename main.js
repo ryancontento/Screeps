@@ -27,7 +27,7 @@ module.exports.loop = function () {
     console.log('Upgraders: ' + upgraders.length);
 
     // Always have at least to upgraders.
-    if(upgrader.length < 2) {
+    if(upgraders.length < 2) {
         var newName = 'Upgrader' + Game.time;
         console.log('Spawning new upgrader: ' + newName);
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE, MOVE], newName, 
@@ -47,15 +47,16 @@ module.exports.loop = function () {
         var creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
-            console.log(`Current Builder Count: ${harvesters.length}`)
+            //Console.log(`Current Builder Count: ${}`)
         }
         if(creep.memory.role == 'upgrader') {
             roleUpgrader.run(creep);
-            console.log(`Current Builder Count: ${upgraders.length}`)
+            //console.log(`Current Builder Count: ${}`)
+
         }
         if(creep.memory.role == 'builder') {
             roleBuilder.run(creep);
-            console.log(`Current Builder Count: ${_.filter(Game.creeps, (creep) => creep.memory.role == 'builder')}`)
+            //console.log(`Current Builder Count: ${}`)
         }
     }
 
