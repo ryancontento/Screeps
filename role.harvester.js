@@ -13,6 +13,8 @@ var roleHarvester = {
                 used = sources[1];
             }
 
+            console.log(`Source used: ${used}`);
+
             if(creep.harvest(used) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(used, {visualizePathStyle: {stroke: '#ffaa00'}});
             }
