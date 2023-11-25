@@ -11,24 +11,27 @@ module.exports.loop = function () {
         }
     }
 
-    var upgrader = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-    console.log('Upgraders: ' + upgrader.length);
-
-    if(upgrader.length < 2) {
-        var newName = 'Upgrader' + Game.time;
-        console.log('Spawning new upgrader: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE, MOVE], newName, 
-            {memory: {role: 'upgrader'}});
-    }
-
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     console.log('Harvesters: ' + harvesters.length);
 
+    // Always have at least 2 harvesters.
     if(harvesters.length < 2) {
         var newName = 'Harvester' + Game.time;
         console.log('Spawning new harvester: ' + newName);
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE, MOVE], newName, 
             {memory: {role: 'harvester'}});
+    }{}
+
+
+    var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+    console.log('Upgraders: ' + upgraders.length);
+
+    // Always have at least to upgraders.
+    if(upgrader.length < 2) {
+        var newName = 'Upgrader' + Game.time;
+        console.log('Spawning new upgrader: ' + newName);
+        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE, MOVE], newName, 
+            {memory: {role: 'upgrader'}});
     }
     
     if(Game.spawns['Spawn1'].spawning) { 
@@ -44,12 +47,15 @@ module.exports.loop = function () {
         var creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
+            console.log(`Current Builder Count: ${harvesters.length}`)
         }
         if(creep.memory.role == 'upgrader') {
             roleUpgrader.run(creep);
+            console.log(`Current Builder Count: ${upgraders.length}`)
         }
         if(creep.memory.role == 'builder') {
             roleBuilder.run(creep);
+            console.log(`Current Builder Count: ${_.filter(Game.creeps, (creep) => creep.memory.role == 'builder')}`)
         }
     }
 
