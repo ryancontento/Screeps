@@ -8,7 +8,7 @@ var roleHarvester = {
             let used;
 
             let switchSource = _.random(0, 4) == 0;
-            if (Sources.sourcePriority(sources[1]) > Sources.sourcePriority(sources[0])) {
+            if (sources.sourcePriority(sources[1]) > Sources.sourcePriority(sources[0])) {
             if (switchSource) {
                 used = sources[0];
             } else {
