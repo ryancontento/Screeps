@@ -4,7 +4,7 @@ var roleHarvester = {
     run: function(creep) {
 	    if(creep.store.getFreeCapacity() > 0) {
 
-            let sources = room.find(FIND_SOURCES);
+            let sources = creep.room.find(FIND_SOURCES);
             let used;
 
             let switchSource = _.random(0, 4) == 0;
