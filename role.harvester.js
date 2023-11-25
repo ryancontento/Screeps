@@ -4,7 +4,7 @@ var roleHarvester = {
     run: function(creep) {
 	    if(creep.store.getFreeCapacity() > 0) {
 
-            Sources.sourcePriority = function(source) {
+            Room.source.sourcePriority  = function(source) {
                 let priority;
                 if (source.ticksToRegeneration == undefined) {
                     priority = 10;
