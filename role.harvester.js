@@ -6,7 +6,6 @@ var roleHarvester = {
             var sources = creep.room.find(FIND_SOURCES);
             
             let switchSource = _.random(0, 4) == 0;
-            console.log(`switchSource: ${switchSource.valueOf}`);
             let used;
             if (switchSource) {
                 used = sources[0];
